@@ -10,7 +10,9 @@ def main():
     for extension in extensions:
         os.mkdir(f"{PATH}\\{extension}")
         for file in files:
-            os.replace(f"{PATH}\\{file}", f"{PATH}\\{extension}\\{file}")
+            if file.split(".")[-1] == extension:
+                os.replace(f"{PATH}\\{file}", f"{PATH}\\{extension}\\{file}")
+    print("Folder successfully organized")
 
 
 def get_files(path):
